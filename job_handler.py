@@ -1,8 +1,8 @@
 from redis import Redis
 from rq import Queue
-import json
+from parser import process_message
 
-redis_conn = Redis(host='localhost', port=6379)
+redis_conn = Redis(host='redis', port=6379)
 q = Queue(connection=redis_conn)
 
 nek_msg = {
@@ -13,6 +13,5 @@ nek_msg = {
     "timestamp": "2025-04-08T10:42:00Z"
 }
 
-from parser import process_message
 job = q.enqueue(process_message, nek_msg)
 print(f"Enqeueued job{job.id}")
