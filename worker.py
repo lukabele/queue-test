@@ -1,5 +1,6 @@
 from redis import Redis
 from rq import Worker, Queue
+from parser import process_message
 
 listen = 'default'
 redis_conn = Redis(host='redis', port=6379)
