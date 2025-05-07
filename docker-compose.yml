@@ -1,25 +1,25 @@
-services:
-  redis:
-    image: 'redis:7'
-    ports:
-     - "6379:6379"
-  
-  mongo:
-    image: 'mongo:latest'
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-    volumes:
-      - mongo-data:/data/db
+  services:
+    redis:
+      image: 'redis:7'
+      ports:
+      - "6379:6379"
     
-  worker:
-    build: .
-    command: python worker.py
-    depends_on:
-     - redis
-     - mongo
+    mongo:
+      image: 'mongo:latest'
+      ports:
+        - "27017:27017"
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: example
+      volumes:
+        - mongo-data:/data/db
+      
+    worker:
+      build: .
+      command: python worker.py
+      depends_on:
+      - redis
+      - mongo
 
-volumes:
-  mongo-data:
+  volumes:
+    mongo-data:

@@ -1,3 +1,24 @@
-.env
-logs/
+# Virtual environments
+.venv/
+
+# Python cache
 __pycache__/
+*.py[cod]
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# uv internal caches (optional)
+.uv/
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python version file
+.python-version
