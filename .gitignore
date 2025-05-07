@@ -22,3 +22,5 @@ Thumbs.db
 
 # Python version file
 .python-version
+
+.env
